@@ -1,10 +1,10 @@
-import { useState, useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import Movie from "../components/Movie";
 
 function Detail() {
   const [loading, setLoading] = useState(true);
-  const [movie, setMovie] = useState();
+  const [movie, setMovie] = useState(null);
   const { id } = useParams();
   useEffect(() => {
     const getMovie = async () => {
@@ -15,7 +15,8 @@ function Detail() {
       setLoading(false);
     };
     getMovie();
-  }, [id]);
+  }, [id]); // deps의 변수가 업데이트 되어 리렌더링 될 때만 실행.
+
   return (
     <div>
       {loading ? (

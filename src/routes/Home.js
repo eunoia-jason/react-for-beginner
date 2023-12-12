@@ -16,7 +16,7 @@ function Home() {
       setLoading(false);
     };
     getMovies();
-  }, []);
+  }, []); // deps를 빈 리스트로 두면, 최초 1회만 실행.
   return (
     <div className={styles.container}>
       {loading ? (
